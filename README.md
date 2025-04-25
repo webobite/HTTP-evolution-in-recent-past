@@ -15,6 +15,9 @@ HTTP/0.9 was the original, one-line protocol that supported only the GET method 
 - **No Status Codes:** Errors could only be conveyed by returning an HTML error page, complicating automated error handling.
 - **Connection Overhead:** Each request required a new TCP connection, leading to high latency for pages with multiple assets (e.g., images).
 
+<img width="619" alt="image" src="https://github.com/user-attachments/assets/4282dd7c-b86d-4c4a-b9e6-c21a7129344a" />
+
+
 ### Resolution in HTTP/1.1
 
 HTTP/1.1 introduced headers, status codes, and persistent connections to address these limitations.
@@ -32,6 +35,8 @@ Standardized in RFC 7230–7235, HTTP/1.1 became the dominant web protocol by 19
 - **Persistent Connections:** Default support for keep-alive connections allowed multiple requests and responses over a single TCP connection, reducing the cost of TCP handshake and teardown for pages with many resources.
 - **Chunked Transfer Encoding:** Servers could send dynamically generated content without knowing the total size in advance by breaking the response into chunks.
 - **Caching and Conditional Requests:** Introduction of headers like `If-Modified-Since` and `ETag` enabled more efficient caching strategies and bandwidth savings.
+
+<img width="631" alt="image" src="https://github.com/user-attachments/assets/62412cf8-34c0-417b-9500-8664675e1c8a" />
 
 ### Remaining Challenges
 
@@ -52,6 +57,9 @@ HTTP/2, published as RFC 7540 in May 2015, was designed to improve web performan
 - **Header Compression:** HPACK reduced header overhead by compressing repeat header fields and using indexing for previously seen values.
 - **Server Push:** Servers could send additional resources to clients preemptively, anticipating future requests, which could improve page load times.
 
+<img width="553" alt="image" src="https://github.com/user-attachments/assets/d614bc13-af0d-46a3-8691-cf57a15676ef" />
+
+
 ### New Challenges
 
 - **TCP Head-of-Line Blocking:** Although HTTP/2 fixed application-layer blocking, packet loss at the TCP level still stalled all multiplexed streams on that connection.
@@ -70,6 +78,9 @@ HTTP/3, specified in RFC 9114 (June 2022), remaps HTTP semantics onto the QUIC t
 - **Elimination of TCP Head-of-Line Blocking:** QUIC’s independent streams ensure that packet loss only stalls the affected stream, not the entire connection.
 - **Faster Connection Setup:** Integrated TLS handshake and transport negotiation enable fewer round trips, often allowing data to flow in 0-RTT configurations.
 - **Connection Migration:** QUIC supports seamless client IP changes (e.g., mobile roaming) without tearing down and re-establishing the connection.
+
+<img width="613" alt="image" src="https://github.com/user-attachments/assets/43797847-1f3d-4dca-8a84-091e3f7a4e65" />
+
 
 ### Remaining Considerations
 
